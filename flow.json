@@ -1,1 +1,92 @@
-[]
+[
+    {
+        "id": "7a82b48065524860",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "786b43756a6e56df",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "4800",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "5",
+        "bin": "bin",
+        "out": "count",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "fd764f9a08b717f7",
+        "type": "inject",
+        "z": "7a82b48065524860",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "b691b180c9a7be3a"
+            ]
+        ]
+    },
+    {
+        "id": "b691b180c9a7be3a",
+        "type": "trigger",
+        "z": "7a82b48065524860",
+        "name": "",
+        "op1": "PA02;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "176e0c9c9584e636"
+            ],
+            [
+                "176e0c9c9584e636"
+            ]
+        ]
+    },
+    {
+        "id": "176e0c9c9584e636",
+        "type": "serial out",
+        "z": "7a82b48065524860",
+        "name": "",
+        "serial": "786b43756a6e56df",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    }
+]
