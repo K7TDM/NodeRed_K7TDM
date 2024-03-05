@@ -1,17 +1,121 @@
 [
     {
-        "id": "7a82b48065524860",
+        "id": "20889b779bcd2b40",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Radio Polling",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
+        "id": "9cf3a6d.1104258",
+        "type": "tab",
+        "label": "Raspberry monitoring",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "eed14075dc1eb9a1",
+        "type": "tab",
+        "label": "Bandwidth",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "31e37240a56aed62",
+        "type": "tab",
+        "label": "Radio Functions",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "47c1c75ddc63c6f1",
+        "type": "tab",
+        "label": "Acom",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "02408e7a839ddc6b",
+        "type": "group",
+        "z": "47c1c75ddc63c6f1",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8c17c2cebe0fb9de",
+            "39648b79db4142fa",
+            "5dc9a13cdfcf492c",
+            "5bcc2180b23b058e",
+            "3a18f9d147b5ab37",
+            "6394519ad9b1209c"
+        ],
+        "x": 954,
+        "y": 339
+    },
+    {
+        "id": "b12a3bd7612d6a17",
+        "type": "junction",
+        "z": "20889b779bcd2b40",
+        "x": 1080,
+        "y": 620,
+        "wires": [
+            [
+                "935100f5a97bde96"
+            ]
+        ]
+    },
+    {
+        "id": "a655de149938df29",
+        "type": "junction",
+        "z": "20889b779bcd2b40",
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "416223da0b2984f6",
+                "07039ad8223dbace"
+            ]
+        ]
+    },
+    {
+        "id": "92a4c1e1aa7a0c61",
+        "type": "junction",
+        "z": "20889b779bcd2b40",
+        "x": 1020,
+        "y": 120,
+        "wires": [
+            [
+                "a655de149938df29"
+            ]
+        ]
+    },
+    {
+        "id": "763b351f50584107",
+        "type": "junction",
+        "z": "20889b779bcd2b40",
+        "x": 1040,
+        "y": 740,
+        "wires": [
+            [
+                "09e1f967c8dfe5d9"
+            ]
+        ]
+    },
+    {
         "id": "786b43756a6e56df",
         "type": "serial-port",
         "serialport": "/dev/ttyUSB0",
-        "serialbaud": "4800",
+        "serialbaud": "38400",
         "databits": "8",
         "parity": "none",
         "stopbits": "1",
@@ -27,40 +131,340 @@
         "responsetimeout": "10000"
     },
     {
-        "id": "fd764f9a08b717f7",
-        "type": "inject",
-        "z": "7a82b48065524860",
+        "id": "9cb4bc4d.96552",
+        "type": "ui_group",
+        "name": "PI Status",
+        "tab": "4640c0fb.326128",
+        "order": 2,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "14bc5267.4d798e",
+        "type": "mqtt-broker",
         "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "raspberry_do_gama_alive",
+        "birthQos": "0",
+        "birthRetain": "true",
+        "birthPayload": "Raspberry ativo",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "4640c0fb.326128",
+        "type": "ui_tab",
+        "name": "K7TDM  -  Info Page",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6a8be9f6661a458f",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#da0122",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#da0122",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#da0122",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#fe294a",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#da0122",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "K7TDM Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2675ce9421e15d59",
+        "type": "ui_group",
+        "name": "Internet SpeedTests",
+        "tab": "4640c0fb.326128",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "155bd25e6a5fe2c8",
+        "type": "remote-config",
+        "name": "K7TDM",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "rvoqxjc9c4qxbeji5xgxcrmpsdw0uh5v37sc99r0w8c81p8wks8ec2f3by6sjm2i",
+        "server": "nodered04.remote-red.com",
+        "region": "de"
+    },
+    {
+        "id": "691e6d39b0c4706a",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "2",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "low",
+        "cts": "none",
+        "dsr": "none",
+        "newline": ";",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "150"
+    },
+    {
+        "id": "1743b9d1dec6cd34",
+        "type": "ui_group",
+        "name": "Meters",
+        "tab": "88d174ab917e0d0c",
+        "order": 2,
+        "disp": true,
+        "width": 17,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "88d174ab917e0d0c",
+        "type": "ui_tab",
+        "name": "FTdx10 INFO",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "381e1b17e9520bd9",
+        "type": "ui_group",
+        "name": "Functions",
+        "tab": "88d174ab917e0d0c",
+        "order": 3,
+        "disp": true,
+        "width": 2,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "acff31012d324209",
+        "type": "ui_spacer",
+        "z": "20889b779bcd2b40",
+        "name": "spacer",
+        "group": "1743b9d1dec6cd34",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0cbafd9af29816d0",
+        "type": "ui_spacer",
+        "z": "20889b779bcd2b40",
+        "name": "spacer",
+        "group": "381e1b17e9520bd9",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "05c85d1659739d57",
+        "type": "ui_spacer",
+        "z": "20889b779bcd2b40",
+        "name": "spacer",
+        "group": "381e1b17e9520bd9",
+        "order": 6,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "240b5116b96ffd44",
+        "type": "ui_group",
+        "name": "Levels",
+        "tab": "88d174ab917e0d0c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "41b51109b21b7142",
+        "type": "ui_spacer",
+        "z": "47c1c75ddc63c6f1",
+        "name": "spacer",
+        "group": "4101a55b2de0c258",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cf0d7821bc33adb0",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "0x55",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "72",
+        "bin": "bin",
+        "out": "count",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "4101a55b2de0c258",
+        "type": "ui_group",
+        "name": "ACOM 600S",
+        "tab": "0b1b143edc46c4d0",
+        "order": 1,
+        "disp": true,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0b1b143edc46c4d0",
+        "type": "ui_tab",
+        "name": "Radio Stuff",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2ca720dae104dda6",
+        "type": "inject",
+        "z": "20889b779bcd2b40",
+        "name": "METER REQ - 0.01 SEC",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "1",
+        "repeat": ".25",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": ".1",
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 190,
-        "y": 120,
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 40,
         "wires": [
             [
-                "b691b180c9a7be3a"
+                "46fbc7116a469923"
             ]
         ]
     },
     {
-        "id": "b691b180c9a7be3a",
+        "id": "46fbc7116a469923",
         "type": "trigger",
-        "z": "7a82b48065524860",
-        "name": "",
-        "op1": "PA02;",
+        "z": "20889b779bcd2b40",
+        "name": "S Meter Req",
+        "op1": "RM1;",
         "op2": "true",
         "op1type": "str",
         "op2type": "bool",
-        "duration": "5",
+        "duration": "1",
         "extend": false,
         "overrideDelay": false,
         "units": "ms",
@@ -68,25 +472,5298 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 430,
-        "y": 120,
+        "x": 530,
+        "y": 40,
         "wires": [
             [
-                "176e0c9c9584e636"
+                "7f391b31df87d7f7"
             ],
             [
-                "176e0c9c9584e636"
+                "ab6c8631998c34a8"
             ]
         ]
     },
     {
-        "id": "176e0c9c9584e636",
-        "type": "serial out",
-        "z": "7a82b48065524860",
+        "id": "ab6c8631998c34a8",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "Comp Meter Req",
+        "op1": "RM3;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 550,
+        "y": 100,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "77516fb33e040893"
+            ]
+        ]
+    },
+    {
+        "id": "77516fb33e040893",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "ALC Meter Req",
+        "op1": "RM4;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "f3262a8c1e74454b"
+            ]
+        ]
+    },
+    {
+        "id": "f3262a8c1e74454b",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "Power Meter Req",
+        "op1": "RM5;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "f9837b1a1f06b85a"
+            ]
+        ]
+    },
+    {
+        "id": "f9837b1a1f06b85a",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "SWR Meter Req",
+        "op1": "RM6;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "90888aa26d4e8dc2"
+            ]
+        ]
+    },
+    {
+        "id": "7f391b31df87d7f7",
+        "type": "serial request",
+        "z": "20889b779bcd2b40",
+        "name": "Yaesu FTdx10",
+        "serial": "691e6d39b0c4706a",
+        "x": 900,
+        "y": 100,
+        "wires": [
+            [
+                "79a16e2bc9af0721",
+                "92a4c1e1aa7a0c61"
+            ]
+        ]
+    },
+    {
+        "id": "416223da0b2984f6",
+        "type": "switch",
+        "z": "20889b779bcd2b40",
+        "name": "Message Sorting",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "RM1",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RM3",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RM4",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RM5",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RM6",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RM7",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RM8",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "AG",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 930,
+        "y": 260,
+        "wires": [
+            [
+                "e33482737af93786"
+            ],
+            [
+                "0c723c952d1b90b5"
+            ],
+            [
+                "1970600c691a6b75"
+            ],
+            [
+                "0b8b498cd9c48b99"
+            ],
+            [
+                "da3eb6a5075ba317"
+            ],
+            [
+                "5e2ea1967d58b99f"
+            ],
+            [
+                "b12a3bd7612d6a17"
+            ],
+            [
+                "763b351f50584107"
+            ]
+        ]
+    },
+    {
+        "id": "79a16e2bc9af0721",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "OUT of FTdx10",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e33482737af93786",
+        "type": "string",
+        "z": "20889b779bcd2b40",
         "name": "",
-        "serial": "786b43756a6e56df",
-        "x": 730,
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM1"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 60,
+        "wires": [
+            [
+                "f208325d505ba80a"
+            ]
+        ]
+    },
+    {
+        "id": "0c723c952d1b90b5",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM3"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 160,
+        "wires": [
+            [
+                "d3b6d4224f4eacc5"
+            ]
+        ]
+    },
+    {
+        "id": "1970600c691a6b75",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM4"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 260,
+        "wires": [
+            [
+                "1f616324c208aa0f"
+            ]
+        ]
+    },
+    {
+        "id": "0b8b498cd9c48b99",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM5"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 360,
+        "wires": [
+            [
+                "412255e19d180d9c"
+            ]
+        ]
+    },
+    {
+        "id": "da3eb6a5075ba317",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM6"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 460,
+        "wires": [
+            [
+                "e9e005ba6b2339f7"
+            ]
+        ]
+    },
+    {
+        "id": "5e2ea1967d58b99f",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM7"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 560,
+        "wires": [
+            [
+                "f4431a463e798046"
+            ]
+        ]
+    },
+    {
+        "id": "935100f5a97bde96",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "RM8"
+                    }
+                ]
+            },
+            {
+                "name": "chompRight",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "000;"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 620,
+        "wires": [
+            [
+                "016c19a546282794"
+            ]
+        ]
+    },
+    {
+        "id": "90888aa26d4e8dc2",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "IDD Meter Req",
+        "op1": "RM7;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "b2864df934304879"
+            ]
+        ]
+    },
+    {
+        "id": "b2864df934304879",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "VDD Meter Req",
+        "op1": "RM8;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "60ef4c4212e49521"
+            ]
+        ]
+    },
+    {
+        "id": "60244b54ad330ef6",
+        "type": "ui_text",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 7,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "VDD",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1630,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "81282c2220469e9b",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "S Meter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1640,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "699aa34169660531",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "Comp Meter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "ae38fa6d01af393d",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "ALC Meter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3a9cc9e1e6bcedf8",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "Power Meter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "818399b6943d2397",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "SWR Meter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4bc5c7c79dea55a9",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "IDD Meter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f208325d505ba80a",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "1",
+        "round": false,
+        "decimals": 0,
+        "x": 1330,
+        "y": 60,
+        "wires": [
+            [
+                "36bd643f27011cb9"
+            ]
+        ]
+    },
+    {
+        "id": "36bd643f27011cb9",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": false,
+        "decimals": 0,
+        "x": 1490,
+        "y": 60,
+        "wires": [
+            [
+                "67f0042bc6071e96",
+                "81282c2220469e9b"
+            ]
+        ]
+    },
+    {
+        "id": "d3b6d4224f4eacc5",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "1",
+        "round": false,
+        "decimals": 0,
+        "x": 1330,
+        "y": 160,
+        "wires": [
+            [
+                "7f8f860c9deedfde"
+            ]
+        ]
+    },
+    {
+        "id": "7f8f860c9deedfde",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": false,
+        "decimals": 0,
+        "x": 1490,
+        "y": 160,
+        "wires": [
+            [
+                "07b2495059120774",
+                "699aa34169660531"
+            ]
+        ]
+    },
+    {
+        "id": "1f616324c208aa0f",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "1",
+        "round": false,
+        "decimals": 0,
+        "x": 1330,
+        "y": 260,
+        "wires": [
+            [
+                "28c86d25e252bf2b"
+            ]
+        ]
+    },
+    {
+        "id": "28c86d25e252bf2b",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": false,
+        "decimals": 0,
+        "x": 1490,
+        "y": 260,
+        "wires": [
+            [
+                "d1b4845a581c90bb",
+                "ae38fa6d01af393d"
+            ]
+        ]
+    },
+    {
+        "id": "e9e005ba6b2339f7",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "1",
+        "round": false,
+        "decimals": 0,
+        "x": 1330,
+        "y": 460,
+        "wires": [
+            [
+                "4198dfdae0f076bd"
+            ]
+        ]
+    },
+    {
+        "id": "4198dfdae0f076bd",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": false,
+        "decimals": 0,
+        "x": 1490,
+        "y": 460,
+        "wires": [
+            [
+                "73150ed1ed02dfc0",
+                "818399b6943d2397"
+            ]
+        ]
+    },
+    {
+        "id": "f4431a463e798046",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "1",
+        "round": false,
+        "decimals": 0,
+        "x": 1330,
+        "y": 560,
+        "wires": [
+            [
+                "a8267c88cc9309d2"
+            ]
+        ]
+    },
+    {
+        "id": "a8267c88cc9309d2",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": false,
+        "decimals": 0,
+        "x": 1490,
+        "y": 560,
+        "wires": [
+            [
+                "88588c9032f3f933",
+                "4bc5c7c79dea55a9"
+            ]
+        ]
+    },
+    {
+        "id": "016c19a546282794",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "17",
+        "round": false,
+        "decimals": 0,
+        "x": 1330,
+        "y": 620,
+        "wires": [
+            [
+                "77493bb4416aa7e4"
+            ]
+        ]
+    },
+    {
+        "id": "77493bb4416aa7e4",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": true,
+        "decimals": "1",
+        "x": 1490,
+        "y": 620,
+        "wires": [
+            [
+                "60244b54ad330ef6"
+            ]
+        ]
+    },
+    {
+        "id": "67f0042bc6071e96",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "S Meter",
+        "label": "S Meter",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "1",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "3",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": true,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1640,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "07b2495059120774",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Comp Meter",
+        "label": "Comp",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "1",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "%",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "3",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": true,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1650,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d1b4845a581c90bb",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "ALC MEter",
+        "label": "ALC",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "1",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "3",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": true,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1650,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e3bc29376b76cbb7",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Power Meter",
+        "label": "Power",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "150",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "0",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": true,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1650,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "73150ed1ed02dfc0",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "SWR Meter",
+        "label": "SWR",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "1",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "3",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": true,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1650,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "88588c9032f3f933",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "1743b9d1dec6cd34",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "IDD Meter",
+        "label": "IDD",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "1",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "3",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": false,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1650,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "412255e19d180d9c",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "150",
+        "round": false,
+        "truncate": false,
+        "decimals": 0,
+        "decimals2": 0,
+        "x": 1330,
+        "y": 360,
+        "wires": [
+            [
+                "c0f2c1a7c031369f"
+            ]
+        ]
+    },
+    {
+        "id": "c0f2c1a7c031369f",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": false,
+        "truncate": false,
+        "decimals": 0,
+        "decimals2": "0",
+        "x": 1490,
+        "y": 360,
+        "wires": [
+            [
+                "e3bc29376b76cbb7",
+                "3a9cc9e1e6bcedf8"
+            ]
+        ]
+    },
+    {
+        "id": "c91fb2e4cf2b8cf3",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "AF",
+        "op1": "AG0;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "7f391b31df87d7f7"
+            ],
+            [
+                "a049fe409fbad58a"
+            ]
+        ]
+    },
+    {
+        "id": "09e1f967c8dfe5d9",
+        "type": "string",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "methods": [
+            {
+                "name": "chompLeft",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "AG0"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1170,
+        "y": 740,
+        "wires": [
+            [
+                "651a94f08daae5c7"
+            ]
+        ]
+    },
+    {
+        "id": "651a94f08daae5c7",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "Meter Range",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "101",
+        "round": false,
+        "truncate": false,
+        "decimals": 0,
+        "decimals2": "0",
+        "x": 1330,
+        "y": 740,
+        "wires": [
+            [
+                "93e1611023c6d951"
+            ]
+        ]
+    },
+    {
+        "id": "93e1611023c6d951",
+        "type": "calculator",
+        "z": "20889b779bcd2b40",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "255",
+        "round": true,
+        "truncate": false,
+        "decimals": "1",
+        "decimals2": "0",
+        "x": 1490,
+        "y": 740,
+        "wires": [
+            [
+                "782d5bfcff288dd3",
+                "7366bb0e916533ee"
+            ]
+        ]
+    },
+    {
+        "id": "782d5bfcff288dd3",
+        "type": "ui_level",
+        "z": "20889b779bcd2b40",
+        "group": "240b5116b96ffd44",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Volume",
+        "label": "Volume",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "100",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": "0",
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "fixed",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": false,
+        "tickmode": "off",
+        "peakmode": true,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 1660,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7366bb0e916533ee",
+        "type": "debug",
+        "z": "20889b779bcd2b40",
+        "name": "debug 66",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "60ef4c4212e49521",
+        "type": "trigger",
+        "z": "20889b779bcd2b40",
+        "name": "S Meter Req",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [],
+            [
+                "c91fb2e4cf2b8cf3"
+            ]
+        ]
+    },
+    {
+        "id": "a049fe409fbad58a",
+        "type": "link out",
+        "z": "20889b779bcd2b40",
+        "name": "Radio Polling Out",
+        "mode": "link",
+        "links": [],
+        "x": 695,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "07039ad8223dbace",
+        "type": "link out",
+        "z": "20889b779bcd2b40",
+        "name": "Acom",
+        "mode": "link",
+        "links": [
+            "4fac08819f7c4333"
+        ],
+        "x": 865,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d4feb199.b898b",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 4,
+        "width": 2,
+        "height": 2,
+        "gtype": "gage",
+        "title": "CPU Temp",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "35",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 663,
+        "y": 33,
+        "wires": []
+    },
+    {
+        "id": "c0682e5c.a4fc",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "vcgencmd measure_temp",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "RPi Temp.",
+        "x": 325.2221908569336,
+        "y": 46.33333683013916,
+        "wires": [
+            [
+                "95ae4c48.9f606"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2be04c82.d0af74",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 107.49996185302734,
+        "y": 46.805556297302246,
+        "wires": [
+            [
+                "c0682e5c.a4fc",
+                "92285ea6.f97a7",
+                "c0ffe68.afd6e18"
+            ]
+        ]
+    },
+    {
+        "id": "95ae4c48.9f606",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "func": "str = msg.payload\nmsg.payload = str.substring(5,9);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 471.888858795166,
+        "y": 33.00000190734863,
+        "wires": [
+            [
+                "d4feb199.b898b",
+                "4bae8072.e81c2"
+            ]
+        ]
+    },
+    {
+        "id": "f4592b30.2f0528",
+        "type": "ui_button",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Reboot",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 114.66669464111328,
+        "y": 330.0000696182251,
+        "wires": [
+            [
+                "cf3854e6.653878"
+            ]
+        ]
+    },
+    {
+        "id": "cf3854e6.653878",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "Reboot",
+        "x": 314.888916015625,
+        "y": 330.0000457763672,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4b4a0861.092b28",
+        "type": "ui_button",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Shutdown",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 104.27777099609375,
+        "y": 386.47229862213135,
+        "wires": [
+            [
+                "4de9dba1.ed7854"
+            ]
+        ]
+    },
+    {
+        "id": "4de9dba1.ed7854",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "sudo shutdown -h now",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "Shutdown",
+        "x": 324.1666564941406,
+        "y": 386.6944923400879,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4bae8072.e81c2",
+        "type": "ui_chart",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 12,
+        "width": 5,
+        "height": 3,
+        "label": "CPU Temp",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 663.9999389648438,
+        "y": 72.66667175292969,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92285ea6.f97a7",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "CPU Load",
+        "x": 325.2221908569336,
+        "y": 126.33333683013916,
+        "wires": [
+            [
+                "404f06.1e77b0fc"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c0ffe68.afd6e18",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "free | grep Mem | awk '{print 100*($4+$6+$7)/$2}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "Free Memory",
+        "x": 325.2222099304199,
+        "y": 190.55557250976562,
+        "wires": [
+            [
+                "8cf70ed5.e49ec"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "404f06.1e77b0fc",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 10,
+        "width": 2,
+        "height": 2,
+        "gtype": "gage",
+        "title": "CPU",
+        "label": "CPU",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 645.111083984375,
+        "y": 114.11111450195312,
+        "wires": []
+    },
+    {
+        "id": "8cf70ed5.e49ec",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 6,
+        "width": 2,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Memory free",
+        "label": "%",
+        "format": "{{parseInt(value)}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 663.3333320617676,
+        "y": 176.55556392669678,
+        "wires": []
+    },
+    {
+        "id": "a508a5b7.89a128",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "df -h",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "Disk Usage",
+        "x": 322.88884353637695,
+        "y": 258.2222442626953,
+        "wires": [
+            [
+                "a8dc2f34.5e32b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ad4498e0.e7c278",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 8,
+        "width": 2,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Disk Space",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 661.1110496520996,
+        "y": 244.88890743255615,
+        "wires": []
+    },
+    {
+        "id": "a8dc2f34.5e32b",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "func": "var re = /([0-9]{2})%/\nvar idx = msg.payload.search(re);\nvar str = msg.payload;\nif (idx >=0) {\n    str = msg.payload.substring(idx, idx + 2);\n}\nmsg.payload = str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470.66661071777344,
+        "y": 244.88890171051025,
+        "wires": [
+            [
+                "ad4498e0.e7c278"
+            ]
+        ]
+    },
+    {
+        "id": "5e6e69bb.0e1d38",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 122.88884353637695,
+        "y": 258.2222442626953,
+        "wires": [
+            [
+                "a508a5b7.89a128"
+            ]
+        ]
+    },
+    {
+        "id": "620c2ccf.7c7584",
+        "type": "ui_text",
+        "z": "9cf3a6d.1104258",
+        "group": "9cb4bc4d.96552",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "IP Address",
+        "format": "{{value.substring(0, value.indexOf(\" \"))}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 661.555591583252,
+        "y": 430.8889102935791,
+        "wires": []
+    },
+    {
+        "id": "19fadb42.3d0c25",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 118.90821075439453,
+        "y": 445.567081451416,
+        "wires": [
+            [
+                "9cce8e0f.766f7"
+            ]
+        ]
+    },
+    {
+        "id": "9cce8e0f.766f7",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "hostname",
+        "addpay": false,
+        "append": "-I",
+        "useSpawn": "",
+        "timer": "",
+        "name": "Get Local IP",
+        "x": 323.4637641906738,
+        "y": 446.06709480285645,
+        "wires": [
+            [
+                "b1e5e669.f1fd48",
+                "620c2ccf.7c7584"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b1e5e669.f1fd48",
+        "type": "mqtt out",
+        "z": "9cf3a6d.1104258",
+        "name": "Send IP thru MQTT",
+        "topic": "raspberrypi3_ip_gama",
+        "qos": "0",
+        "retain": "true",
+        "broker": "14bc5267.4d798e",
+        "x": 680.6859703063965,
+        "y": 380.34489250183105,
+        "wires": []
+    },
+    {
+        "id": "7576e2afba102abe",
+        "type": "speedtest",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "maxTime": 5000,
+        "serverId": "42355",
+        "acceptLicense": true,
+        "acceptGdpr": true,
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "876ec26a84eca7cc",
+                "f0713bd9bc27d91b",
+                "1fa21f2534191c05",
+                "16819533028733c0",
+                "8019b3d939e43755",
+                "4d384fd0891ba4e2",
+                "b6a49b10ef6a17eb"
+            ]
+        ]
+    },
+    {
+        "id": "f66da9982f8b83d0",
+        "type": "inject",
+        "z": "eed14075dc1eb9a1",
+        "name": "Every 2 hours",
+        "props": [
+            {
+                "p": "acceptLicense",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "7200",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 270,
+        "y": 360,
+        "wires": [
+            [
+                "7576e2afba102abe"
+            ]
+        ]
+    },
+    {
+        "id": "8019b3d939e43755",
+        "type": "debug",
+        "z": "eed14075dc1eb9a1",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "cf6e2a7e60b2b81f",
+        "type": "ui_text",
+        "z": "eed14075dc1eb9a1",
+        "group": "2675ce9421e15d59",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "ST Last Run",
+        "label": "Last Run",
+        "format": "{{msg.payload.timestamp}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "876ec26a84eca7cc",
+        "type": "ui_text",
+        "z": "eed14075dc1eb9a1",
+        "group": "2675ce9421e15d59",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "name": "ST Jitter",
+        "label": "jitter",
+        "format": "{{msg.payload.ping.jitter}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 700,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f0713bd9bc27d91b",
+        "type": "ui_text",
+        "z": "eed14075dc1eb9a1",
+        "group": "2675ce9421e15d59",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "name": "ST Latency",
+        "label": "latency",
+        "format": "{{msg.payload.ping.latency}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 710,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1fa21f2534191c05",
+        "type": "function",
+        "z": "eed14075dc1eb9a1",
+        "name": "Upload ST",
+        "func": "let upload_bandwidth = msg.payload.upload.bandwidth/125000\n\nupload_bandwidth = Math.round(upload_bandwidth);\nmsg.payload = upload_bandwidth;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 500,
+        "wires": [
+            [
+                "99c21c1f4d27c066",
+                "7f6f4fe77c398512"
+            ]
+        ]
+    },
+    {
+        "id": "16819533028733c0",
+        "type": "function",
+        "z": "eed14075dc1eb9a1",
+        "name": "Download ST",
+        "func": "let download_bandwidth = msg.payload.download.bandwidth/125000\n\ndownload_bandwidth = Math.round(download_bandwidth);\n\nmsg.payload = download_bandwidth;\nmsg.topic = \"\"\n\nreturn msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 420,
+        "wires": [
+            [
+                "824d1e3c5717f9a8",
+                "b7e75a09ba971e80",
+                "464c2640949f4cce",
+                "f6fc1dfcc49182bd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "824d1e3c5717f9a8",
+        "type": "ui_gauge",
+        "z": "eed14075dc1eb9a1",
+        "name": "ST Download Bandwidth",
+        "group": "2675ce9421e15d59",
+        "order": 5,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Download",
+        "label": "Mbs",
+        "format": "{{msg.payload}}",
+        "min": "100",
+        "max": "600",
+        "colors": [
+            "#f40000",
+            "#e6e600",
+            "#00f500"
+        ],
+        "seg1": "450",
+        "seg2": "500",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "99c21c1f4d27c066",
+        "type": "ui_gauge",
+        "z": "eed14075dc1eb9a1",
+        "name": "ST Upload Bandwidth",
+        "group": "2675ce9421e15d59",
+        "order": 6,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Upload",
+        "label": "Mbs",
+        "format": "{{msg.payload}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#ff0000",
+            "#e6e600",
+            "#00ff00"
+        ],
+        "seg1": "15",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "4d384fd0891ba4e2",
+        "type": "ui_text",
+        "z": "eed14075dc1eb9a1",
+        "group": "2675ce9421e15d59",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "ST Server",
+        "label": "Speed Server",
+        "format": "{{msg.payload.server.location}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 720,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b7e75a09ba971e80",
+        "type": "ui_chart",
+        "z": "eed14075dc1eb9a1",
+        "name": "ST Download Chart",
+        "group": "2675ce9421e15d59",
+        "order": 7,
+        "width": 6,
+        "height": 3,
+        "label": "Download",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "7",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 950,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f6f4fe77c398512",
+        "type": "ui_chart",
+        "z": "eed14075dc1eb9a1",
+        "name": "ST Upload Chart",
+        "group": "2675ce9421e15d59",
+        "order": 8,
+        "width": 6,
+        "height": 3,
+        "label": "Upload",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "7",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 950,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "464c2640949f4cce",
+        "type": "debug",
+        "z": "eed14075dc1eb9a1",
+        "name": "debug 65",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b6a49b10ef6a17eb",
+        "type": "moment",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "topic": "",
+        "input": "payload.timestamp",
+        "inputType": "msg",
+        "inTz": "ETC/UTC",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "MM-DD-YY h:mm:ss z",
+        "locale": "en-GB",
+        "output": "msg.payload.timestamp",
+        "outputType": "msg",
+        "outTz": "America/Los_Angeles",
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "cf6e2a7e60b2b81f"
+            ]
+        ]
+    },
+    {
+        "id": "f6fc1dfcc49182bd",
+        "type": "switch",
+        "z": "eed14075dc1eb9a1",
+        "name": "< 400?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "400",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 380,
+        "wires": [
+            [
+                "4ef9a7372428dc94"
+            ]
+        ]
+    },
+    {
+        "id": "f5b3f316b99e260b",
+        "type": "inject",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "300",
+        "payloadType": "num",
+        "x": 1110,
+        "y": 340,
+        "wires": [
+            [
+                "4ef9a7372428dc94"
+            ]
+        ]
+    },
+    {
+        "id": "4ef9a7372428dc94",
+        "type": "remote-notification",
+        "z": "eed14075dc1eb9a1",
+        "confignode": "155bd25e6a5fe2c8",
+        "name": "",
+        "notificationTitle": "K7TDM - Speed",
+        "notificationTitleType": "str",
+        "notificationBody": "payload",
+        "notificationBodyType": "msg",
+        "notificationSound": "default",
+        "notificationSoundComputed": "payload.sound",
+        "notificationSoundComputedType": "msg",
+        "output": 1,
+        "x": 1350,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b7a0d2d87477d142",
+        "type": "serial out",
+        "z": "31e37240a56aed62",
+        "name": "FTdx10",
+        "serial": "786b43756a6e56df",
+        "x": 900,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "0c8a808fdf8c86ad",
+        "type": "ui_button",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "group": "381e1b17e9520bd9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "SM58",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "79fa1b4af9cff88f"
+            ]
+        ]
+    },
+    {
+        "id": "ba0844bdd8d0a130",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 FREQ",
+        "op1": "EX03030203;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "f6b5df4bf274f89c"
+            ]
+        ]
+    },
+    {
+        "id": "f6b5df4bf274f89c",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 LEVEL",
+        "op1": "EX030303-09;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "62ae29ec7d107e48"
+            ]
+        ]
+    },
+    {
+        "id": "ce2572be7e0bf9b1",
+        "type": "ui_button",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "group": "381e1b17e9520bd9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "SENHEISER",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1030,
+        "y": 120,
+        "wires": [
+            [
+                "9af36544dc69555a"
+            ]
+        ]
+    },
+    {
+        "id": "79fa1b4af9cff88f",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "AMC RELEASE TIME",
+        "op1": "EX0303010;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "ba0844bdd8d0a130"
+            ]
+        ]
+    },
+    {
+        "id": "62ae29ec7d107e48",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 BWTH",
+        "op1": "EX03030402;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "3326dd8c15383b3c"
+            ]
+        ]
+    },
+    {
+        "id": "3326dd8c15383b3c",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 FREQ",
+        "op1": "EX03030508;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "d42edcbc8f961962"
+            ]
+        ]
+    },
+    {
+        "id": "d42edcbc8f961962",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 LEVEL",
+        "op1": "EX030306+05;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "2c38ee326d4a37fb"
+            ]
+        ]
+    },
+    {
+        "id": "2c38ee326d4a37fb",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 BWTH",
+        "op1": "EX03030704;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 480,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "268b8338f1a87886"
+            ]
+        ]
+    },
+    {
+        "id": "268b8338f1a87886",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ3 FREQ",
+        "op1": "EX03030818;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 540,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "cf9637078888db8a"
+            ]
+        ]
+    },
+    {
+        "id": "cf9637078888db8a",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ3 LEVEL",
+        "op1": "EX030309+10;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 600,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "a932a1f720e32071"
+            ]
+        ]
+    },
+    {
+        "id": "a932a1f720e32071",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 BWTH",
+        "op1": "EX03031000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 440,
+        "y": 660,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "5623e6c4fee1a374"
+            ]
+        ]
+    },
+    {
+        "id": "5623e6c4fee1a374",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 FREQ",
+        "op1": "EX03031103;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 740,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "a516e21a49d43962"
+            ]
+        ]
+    },
+    {
+        "id": "a516e21a49d43962",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 LEVEL",
+        "op1": "EX030312-07;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 800,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "1e8e7fe1389f48fd"
+            ]
+        ]
+    },
+    {
+        "id": "1e8e7fe1389f48fd",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 BWTH",
+        "op1": "EX03031302;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 860,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "cf7242b8331d773e"
+            ]
+        ]
+    },
+    {
+        "id": "cf7242b8331d773e",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 FREQ",
+        "op1": "EX03031408;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 920,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "5ddeb76aecb15ec3"
+            ]
+        ]
+    },
+    {
+        "id": "5ddeb76aecb15ec3",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 LEVEL",
+        "op1": "EX030315+05;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 980,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "079a923820b31758"
+            ]
+        ]
+    },
+    {
+        "id": "079a923820b31758",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 BWTH",
+        "op1": "EX03031604;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 1040,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "32c592a53d7d031e"
+            ]
+        ]
+    },
+    {
+        "id": "32c592a53d7d031e",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ3 FREQ",
+        "op1": "EX03031718;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 1100,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "6072fc67d744414f"
+            ]
+        ]
+    },
+    {
+        "id": "6072fc67d744414f",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ3 LEVEL",
+        "op1": "EX030318+10;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 1160,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            [
+                "6f1f0dfa39391230"
+            ]
+        ]
+    },
+    {
+        "id": "6f1f0dfa39391230",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 BWTH",
+        "op1": "EX03031900;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 450,
+        "y": 1220,
+        "wires": [
+            [
+                "b7a0d2d87477d142"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "aadd6077eb279de4",
+        "type": "serial out",
+        "z": "31e37240a56aed62",
+        "name": "FTdx10",
+        "serial": "786b43756a6e56df",
+        "x": 1720,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "aa6475c66ef69231",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 FREQ",
+        "op1": "EX03030203;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 180,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "ef16baa020a2980f"
+            ]
+        ]
+    },
+    {
+        "id": "ef16baa020a2980f",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 LEVEL",
+        "op1": "EX030303-07;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 240,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "d3484dddf06458d2"
+            ]
+        ]
+    },
+    {
+        "id": "9af36544dc69555a",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "AMC RELEASE TIME",
+        "op1": "EX0303010;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 120,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "aa6475c66ef69231"
+            ]
+        ]
+    },
+    {
+        "id": "d3484dddf06458d2",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 BWTH",
+        "op1": "EX03030402;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 300,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "527d5117bf704c4d"
+            ]
+        ]
+    },
+    {
+        "id": "527d5117bf704c4d",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 FREQ",
+        "op1": "EX03030508;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 360,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "9bb528ad7d6f8985"
+            ]
+        ]
+    },
+    {
+        "id": "9bb528ad7d6f8985",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 LEVEL",
+        "op1": "EX030306+05;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 420,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "0ad14e94522a42fe"
+            ]
+        ]
+    },
+    {
+        "id": "0ad14e94522a42fe",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 BWTH",
+        "op1": "EX03030704;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 480,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "abece8ae64247177"
+            ]
+        ]
+    },
+    {
+        "id": "abece8ae64247177",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ3 FREQ",
+        "op1": "EX03030818;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 540,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "9865dbc6178ac116"
+            ]
+        ]
+    },
+    {
+        "id": "9865dbc6178ac116",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ3 LEVEL",
+        "op1": "EX030309+10;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 600,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "a9ab58d211488347"
+            ]
+        ]
+    },
+    {
+        "id": "a9ab58d211488347",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 BWTH",
+        "op1": "EX03031000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1260,
+        "y": 660,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "d6ee6f2256254031"
+            ]
+        ]
+    },
+    {
+        "id": "d6ee6f2256254031",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 FREQ",
+        "op1": "EX03031103;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 740,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "dde0373f086368aa"
+            ]
+        ]
+    },
+    {
+        "id": "dde0373f086368aa",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 LEVEL",
+        "op1": "EX030312-07;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 800,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "5653016293f35257"
+            ]
+        ]
+    },
+    {
+        "id": "5653016293f35257",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 BWTH",
+        "op1": "EX03031302;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 860,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "6d2855c089f9fb0b"
+            ]
+        ]
+    },
+    {
+        "id": "6d2855c089f9fb0b",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 FREQ",
+        "op1": "EX03031408;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 920,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "1cd4e46a1d73413c"
+            ]
+        ]
+    },
+    {
+        "id": "1cd4e46a1d73413c",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 LEVEL",
+        "op1": "EX030315+05;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 980,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "4fd9a2bc87bc1a14"
+            ]
+        ]
+    },
+    {
+        "id": "4fd9a2bc87bc1a14",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 BWTH",
+        "op1": "EX03031604;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 1040,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "8890fee252eec3da"
+            ]
+        ]
+    },
+    {
+        "id": "8890fee252eec3da",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ3 FREQ",
+        "op1": "EX03031718;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 1100,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "144b2e0fe48bdb0c"
+            ]
+        ]
+    },
+    {
+        "id": "144b2e0fe48bdb0c",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ3 LEVEL",
+        "op1": "EX030318+10;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 1160,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            [
+                "fea0f55d819f829f"
+            ]
+        ]
+    },
+    {
+        "id": "fea0f55d819f829f",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 BWTH",
+        "op1": "EX03031900;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1270,
+        "y": 1220,
+        "wires": [
+            [
+                "aadd6077eb279de4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a0c90b60fe315b33",
+        "type": "serial out",
+        "z": "31e37240a56aed62",
+        "name": "FTdx10",
+        "serial": "786b43756a6e56df",
+        "x": 2960,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "df83a6c7507060fd",
+        "type": "ui_button",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "group": "381e1b17e9520bd9",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "FT8",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 2170,
+        "y": 160,
+        "wires": [
+            [
+                "1e8aef6077921cc8"
+            ]
+        ]
+    },
+    {
+        "id": "1e8aef6077921cc8",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "AUTO NOTCH OFF",
+        "op1": "BC00;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2520,
+        "y": 160,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "143dcff448e651c5"
+            ]
+        ]
+    },
+    {
+        "id": "143dcff448e651c5",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "MAN NOTCH OFF",
+        "op1": "P00000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2510,
+        "y": 220,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "0116d8ce80cd9820"
+            ]
+        ]
+    },
+    {
+        "id": "0116d8ce80cd9820",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "CONTOUR OFF",
+        "op1": "CO000000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2500,
+        "y": 280,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "bfad81b253ac299e"
+            ]
+        ]
+    },
+    {
+        "id": "bfad81b253ac299e",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "NB OFF",
+        "op1": "NB00;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2480,
+        "y": 340,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "7823c3e42d38c5f0"
+            ]
+        ]
+    },
+    {
+        "id": "7823c3e42d38c5f0",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "NR OFF",
+        "op1": "NR00;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2480,
+        "y": 400,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "68660e81f7c81741"
+            ]
+        ]
+    },
+    {
+        "id": "68660e81f7c81741",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "LOW POWER",
+        "op1": "PC025;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2500,
+        "y": 460,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "c5506b0d5122ec79"
+            ]
+        ]
+    },
+    {
+        "id": "c5506b0d5122ec79",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "RF ATT",
+        "op1": "RA00;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2480,
+        "y": 520,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            [
+                "1f1ed37e5308f53f"
+            ]
+        ]
+    },
+    {
+        "id": "1f1ed37e5308f53f",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "ROOF",
+        "op1": "RF01;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2470,
+        "y": 580,
+        "wires": [
+            [
+                "a0c90b60fe315b33"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "30ea6d3e7e61f43e",
+        "type": "serial out",
+        "z": "31e37240a56aed62",
+        "name": "FTdx10",
+        "serial": "786b43756a6e56df",
+        "x": 3060,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "c69aaaa339c0928e",
+        "type": "ui_button",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "group": "381e1b17e9520bd9",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "SSB",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 2270,
+        "y": 860,
+        "wires": [
+            [
+                "70aef29b263a0259"
+            ]
+        ]
+    },
+    {
+        "id": "70aef29b263a0259",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "AUTO NOTCH ONN",
+        "op1": "BC01;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2620,
+        "y": 860,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "15c7bfdff669cc1f"
+            ]
+        ]
+    },
+    {
+        "id": "15c7bfdff669cc1f",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "MAN NOTCH OFF",
+        "op1": "P00000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2610,
+        "y": 920,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "31fecf9ce437a619"
+            ]
+        ]
+    },
+    {
+        "id": "31fecf9ce437a619",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "CONTOUR OFF",
+        "op1": "CO000000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2600,
+        "y": 980,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "606345e5d84e6096"
+            ]
+        ]
+    },
+    {
+        "id": "606345e5d84e6096",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "NB OFF",
+        "op1": "NB00;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2580,
+        "y": 1040,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "595d6ea158ae27be"
+            ]
+        ]
+    },
+    {
+        "id": "595d6ea158ae27be",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "NR OFF",
+        "op1": "NR01;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2580,
+        "y": 1100,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "65de34a34a2ab74e"
+            ]
+        ]
+    },
+    {
+        "id": "65de34a34a2ab74e",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "100 w",
+        "op1": "PC100;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2570,
+        "y": 1160,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "b650e453f7ffa644"
+            ]
+        ]
+    },
+    {
+        "id": "b650e453f7ffa644",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "RF ATT",
+        "op1": "RA00;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2580,
+        "y": 1220,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            [
+                "4359b7b8e9463a25"
+            ]
+        ]
+    },
+    {
+        "id": "4359b7b8e9463a25",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "ROOF",
+        "op1": "RF02;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 2570,
+        "y": 1280,
+        "wires": [
+            [
+                "30ea6d3e7e61f43e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "01397ceda50abf5f",
+        "type": "link in",
+        "z": "31e37240a56aed62",
+        "name": "link in 1",
+        "links": [],
+        "x": 185,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f3fdd83a8b5c2c4",
+        "type": "inject",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "0c8a808fdf8c86ad"
+            ]
+        ]
+    },
+    {
+        "id": "bb183de6b3cf49d4",
+        "type": "inject",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1020,
+        "y": 60,
+        "wires": [
+            [
+                "ce2572be7e0bf9b1"
+            ]
+        ]
+    },
+    {
+        "id": "6cc90dbc80b6d8d1",
+        "type": "inject",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2160,
+        "y": 100,
+        "wires": [
+            [
+                "df83a6c7507060fd"
+            ]
+        ]
+    },
+    {
+        "id": "3c3b9eea37f86d43",
+        "type": "inject",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2260,
+        "y": 800,
+        "wires": [
+            [
+                "c69aaaa339c0928e"
+            ]
+        ]
+    },
+    {
+        "id": "3a56ef2bd3de9fee",
+        "type": "ui_button",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "group": "381e1b17e9520bd9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "PR781",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 1440,
+        "wires": [
+            [
+                "9b254e2c6c7b7046"
+            ]
+        ]
+    },
+    {
+        "id": "3afc359b804cca9e",
+        "type": "serial out",
+        "z": "31e37240a56aed62",
+        "name": "FTdx10",
+        "serial": "786b43756a6e56df",
+        "x": 1020,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "04ebcf46be5114e0",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 FREQ",
+        "op1": "EX03030305;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1500,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "a2f0cc3d2f86f795"
+            ]
+        ]
+    },
+    {
+        "id": "a2f0cc3d2f86f795",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 LEVEL",
+        "op1": "EX030304-15;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1560,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "9e4a079f623da6ee"
+            ]
+        ]
+    },
+    {
+        "id": "9b254e2c6c7b7046",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "AMC RELEASE TIME",
+        "op1": "EX0303010;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1440,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "04ebcf46be5114e0"
+            ]
+        ]
+    },
+    {
+        "id": "9e4a079f623da6ee",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 BWTH",
+        "op1": "EX03030510;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1620,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "fcb1c95b3175c002"
+            ]
+        ]
+    },
+    {
+        "id": "fcb1c95b3175c002",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 FREQ",
+        "op1": "EX03030508;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1680,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "6867d65bc5dbeb62"
+            ]
+        ]
+    },
+    {
+        "id": "6867d65bc5dbeb62",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 LEVEL",
+        "op1": "EX030306+05;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1740,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "1b55b8ba431217b6"
+            ]
+        ]
+    },
+    {
+        "id": "1b55b8ba431217b6",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ2 BWTH",
+        "op1": "EX03030704;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1800,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "516c87115c5bde34"
+            ]
+        ]
+    },
+    {
+        "id": "516c87115c5bde34",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ3 FREQ",
+        "op1": "EX03030818;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1860,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "35c985833a68a0b2"
+            ]
+        ]
+    },
+    {
+        "id": "35c985833a68a0b2",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ3 LEVEL",
+        "op1": "EX030309+10;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1920,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "c1e0118ff7c3d630"
+            ]
+        ]
+    },
+    {
+        "id": "c1e0118ff7c3d630",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "PRMTRC EQ1 BWTH",
+        "op1": "EX03031000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 560,
+        "y": 1980,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "1a9e9f455c817c15"
+            ]
+        ]
+    },
+    {
+        "id": "1a9e9f455c817c15",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 FREQ",
+        "op1": "EX03031103;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2060,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "49463ec8f2139f3c"
+            ]
+        ]
+    },
+    {
+        "id": "49463ec8f2139f3c",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 LEVEL",
+        "op1": "EX030312-07;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2120,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "2cee37c8af44bfcd"
+            ]
+        ]
+    },
+    {
+        "id": "2cee37c8af44bfcd",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 BWTH",
+        "op1": "EX03031302;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2180,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "07872e77ce7d8b76"
+            ]
+        ]
+    },
+    {
+        "id": "07872e77ce7d8b76",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 FREQ",
+        "op1": "EX03031408;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2240,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "f00c08e9471d7c27"
+            ]
+        ]
+    },
+    {
+        "id": "f00c08e9471d7c27",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 LEVEL",
+        "op1": "EX030315+05;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2300,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "1c3f6ca65594a2ad"
+            ]
+        ]
+    },
+    {
+        "id": "1c3f6ca65594a2ad",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ2 BWTH",
+        "op1": "EX03031604;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2360,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "c52ad746202c1efd"
+            ]
+        ]
+    },
+    {
+        "id": "c52ad746202c1efd",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ3 FREQ",
+        "op1": "EX03031718;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2420,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "0ffeda4fda696955"
+            ]
+        ]
+    },
+    {
+        "id": "0ffeda4fda696955",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ3 LEVEL",
+        "op1": "EX030318+10;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2480,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            [
+                "999c4c96fb7fdd47"
+            ]
+        ]
+    },
+    {
+        "id": "999c4c96fb7fdd47",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "P PRMTRC EQ1 BWTH",
+        "op1": "EX03031900;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 570,
+        "y": 2540,
+        "wires": [
+            [
+                "3afc359b804cca9e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "eb5c99e9994b0e3f",
+        "type": "inject",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 1380,
+        "wires": [
+            [
+                "3a56ef2bd3de9fee"
+            ]
+        ]
+    },
+    {
+        "id": "d3f76d1298a4f3ad",
+        "type": "serial out",
+        "z": "31e37240a56aed62",
+        "name": "FTdx10",
+        "serial": "786b43756a6e56df",
+        "x": 3960,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e6d4e93214cd5828",
+        "type": "ui_button",
+        "z": "31e37240a56aed62",
+        "name": "",
+        "group": "381e1b17e9520bd9",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "FT8 Scope",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 3190,
+        "y": 180,
+        "wires": [
+            [
+                "7a04bdcd4fa43281"
+            ]
+        ]
+    },
+    {
+        "id": "7a04bdcd4fa43281",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "Scope Center",
+        "op1": "SS0640000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 3500,
+        "y": 180,
+        "wires": [
+            [
+                "d3f76d1298a4f3ad"
+            ],
+            [
+                "621a5ea02b7bc0ce"
+            ]
+        ]
+    },
+    {
+        "id": "621a5ea02b7bc0ce",
+        "type": "trigger",
+        "z": "31e37240a56aed62",
+        "name": "Scope Span",
+        "op1": "SS0530000;",
+        "op2": "true",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 3490,
+        "y": 240,
+        "wires": [
+            [
+                "d3f76d1298a4f3ad"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "31fc20dab2f1b4fa",
+        "type": "inject",
+        "z": "47c1c75ddc63c6f1",
+        "name": "Start Telemetry 0x92",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[85,146,4,21]",
+        "payloadType": "bin",
+        "x": 670,
+        "y": 100,
+        "wires": [
+            [
+                "0fb9611ddcb654e1"
+            ]
+        ]
+    },
+    {
+        "id": "cb7f5cd4a3357174",
+        "type": "inject",
+        "z": "47c1c75ddc63c6f1",
+        "name": "Stop Telemetry 0x91",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[85,145,4,22]",
+        "payloadType": "bin",
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "0fb9611ddcb654e1"
+            ]
+        ]
+    },
+    {
+        "id": "0bc0029797434b10",
+        "type": "serial in",
+        "z": "47c1c75ddc63c6f1",
+        "name": "",
+        "serial": "cf0d7821bc33adb0",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "9a896062761eed80"
+            ]
+        ]
+    },
+    {
+        "id": "0fb9611ddcb654e1",
+        "type": "serial out",
+        "z": "47c1c75ddc63c6f1",
+        "name": "",
+        "serial": "cf0d7821bc33adb0",
+        "x": 930,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9a896062761eed80",
+        "type": "delay",
+        "z": "47c1c75ddc63c6f1",
+        "name": "slow status rate",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "0.75",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "d41e2f787941df24"
+            ]
+        ]
+    },
+    {
+        "id": "324f3fcf51373166",
+        "type": "function",
+        "z": "47c1c75ddc63c6f1",
+        "name": "get message # then data",
+        "func": "var fromAcom = msg.payload[1];\n\nswitch(fromAcom)\n{\n   case 47:   // ACOM message 0x2F\n\n       var ampMode;\n       ampMode = msg.payload[3];\n       global.set(\"mode\",ampMode);     //valid data are 81,97, or 113 dec\n       \n       var temp_lowbyte = msg.payload[16];  //get amp temp. in deg C\n       var temp_highbyte = msg.payload[17];\n       temp_low = temp_lowbyte.toString(16);\n       temp_hi = temp_highbyte.toString(16);\n       temphex = temp_hi.concat(temp_low);\n       tempC = parseInt(temphex,16) - 273;\n       global.set(\"amp_tempC\",tempC)\n\n       var swr_lowbyte = msg.payload[26];   //get amp SWR\n       var swr_highbyte = msg.payload[27];\n       swr_low = swr_lowbyte.toString(16);\n       swr_hi = swr_highbyte.toString(16);\n       swrhex = swr_hi.concat(swr_low);\n       swr = parseInt(swrhex,16) / 100;\n       global.set(\"amp_swr\",swr)\n       \n       var pwr_lowbyte = msg.payload[22];   //get amp FWD PWR - watts\n       var pwr_highbyte = msg.payload[23];\n       pwr_low = pwr_lowbyte.toString(16);\n       pwr_hi = pwr_highbyte.toString(16);\n       pwrhex = pwr_hi.concat(pwr_low);\n       pwr = parseInt(pwrhex,16);\n       global.set(\"amp_pwr\",pwr)\n       \n       break;\n    \n    case 39:     // ACOM message 0x27 --- band info - no data extracted\n        msg.payload = 16;\n        break;\n    default:\n    text = \"failed\"\n    \n// CASE function used here to permit future interception of other \n// amplifier messages, if required.\n        \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "3ce04feb6345855f"
+            ]
+        ]
+    },
+    {
+        "id": "3766c9f2eac5a887",
+        "type": "inject",
+        "z": "47c1c75ddc63c6f1",
+        "name": "inject 72 byte test buffer",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[55,47,72,97,4,9,145,18,0,0,0,0,48,0,231,242,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,20,253,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,255,5,0,195]",
+        "payloadType": "bin",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "d41e2f787941df24"
+            ]
+        ]
+    },
+    {
+        "id": "11a060052bd487b9",
+        "type": "link out",
+        "z": "47c1c75ddc63c6f1",
+        "d": true,
+        "name": "acom status",
+        "mode": "link",
+        "links": [],
+        "x": 1075,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "fd33e2c70cccf53e",
+        "type": "comment",
+        "z": "47c1c75ddc63c6f1",
+        "name": "Acom 600S Status and Control",
+        "info": "Amplifier (ACOM 600S) status message sent automatically and continuously with 10 ms pause through the amps RS232 interface.  Message rate to N-R slowed for convenience and stability. Data extracted from message includes amp mode(OPR/STBY), amp SWR, amp TEMP and amp FWD PWR, at this time. \n\nACOM amp must be directed to \"Start Telementry\" to begin sending primary status message, 0x2F.  This should be incorporated into a system start-up flow but is not included here as it is specific to the user's equipment.\n\nNo Dashboard has been created for this flow as all my amplifier interface will be using a Streamdeck 15 key controller. Pushbutton command from Streamdeck (SD) is used to change amplifier modes.   Dashboard may be created at a later date.\n",
+        "x": 150,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "02216231d87bf9ab",
+        "type": "comment",
+        "z": "47c1c75ddc63c6f1",
+        "name": "ABOUT",
+        "info": "Flow to collect/send data from/to an ACOM 600S Linear Amplifier.  Specifics are based on ACOM publication, “RF Amplifier ACOM 600S Serial Port Communication Protocol” rev.1.1, dated 12-4-2014 by Nikolay Nenov.  Use for other similar ACOM products has not been investigated.\nBy George Jones, K7GRJ\nOctober 2022\n",
+        "x": 70,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3ce04feb6345855f",
+        "type": "change",
+        "z": "47c1c75ddc63c6f1",
+        "name": "maintain flow ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "go",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 180,
+        "wires": [
+            [
+                "11a060052bd487b9",
+                "39648b79db4142fa",
+                "5dc9a13cdfcf492c",
+                "5bcc2180b23b058e"
+            ]
+        ]
+    },
+    {
+        "id": "9b2972af2f90dba7",
+        "type": "trigger",
+        "z": "47c1c75ddc63c6f1",
+        "name": "Send Operate",
+        "op1": "[85,129,8,2,255,6,0,27]",
+        "op2": "",
+        "op1type": "bin",
+        "op2type": "nul",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "0fb9611ddcb654e1"
+            ]
+        ]
+    },
+    {
+        "id": "79772dbec18e39bc",
+        "type": "trigger",
+        "z": "47c1c75ddc63c6f1",
+        "name": "Send Standby",
+        "op1": "[85,129,8,2,255,5,0,28]",
+        "op2": "",
+        "op1type": "bin",
+        "op2type": "nul",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 620,
+        "y": 280,
+        "wires": [
+            [
+                "0fb9611ddcb654e1"
+            ]
+        ]
+    },
+    {
+        "id": "84be87dcd457feac",
+        "type": "comment",
+        "z": "47c1c75ddc63c6f1",
+        "name": "<< Start telemetry must be triggered after startup of amp",
+        "info": "",
+        "x": 980,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8c17c2cebe0fb9de",
+        "type": "ui_gauge",
+        "z": "47c1c75ddc63c6f1",
+        "g": "02408e7a839ddc6b",
+        "name": "AMP TEMP",
+        "group": "4101a55b2de0c258",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "45",
+        "seg2": "60",
+        "className": "",
+        "x": 1250,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "39648b79db4142fa",
+        "type": "function",
+        "z": "47c1c75ddc63c6f1",
+        "g": "02408e7a839ddc6b",
+        "name": "AMP Temp",
+        "func": "var T\n\nT = global.get(\"amp_tempC\");\n\nmsg.payload=T;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 380,
+        "wires": [
+            [
+                "8c17c2cebe0fb9de"
+            ]
+        ]
+    },
+    {
+        "id": "5dc9a13cdfcf492c",
+        "type": "function",
+        "z": "47c1c75ddc63c6f1",
+        "g": "02408e7a839ddc6b",
+        "name": "AMP SWR",
+        "func": "var S\n\nS = global.get(\"amp_swr\");\n\nmsg.payload=S;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 440,
+        "wires": [
+            [
+                "3a18f9d147b5ab37"
+            ]
+        ]
+    },
+    {
+        "id": "5bcc2180b23b058e",
+        "type": "function",
+        "z": "47c1c75ddc63c6f1",
+        "g": "02408e7a839ddc6b",
+        "name": "AMP FWD PWR",
+        "func": "var P\n\nP = global.get(\"amp_pwr\");\n\nmsg.payload=P;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 500,
+        "wires": [
+            [
+                "6394519ad9b1209c"
+            ]
+        ]
+    },
+    {
+        "id": "3a18f9d147b5ab37",
+        "type": "ui_gauge",
+        "z": "47c1c75ddc63c6f1",
+        "g": "02408e7a839ddc6b",
+        "name": "AMP SWR",
+        "group": "4101a55b2de0c258",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "SWR",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "5",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "2",
+        "seg2": "3",
+        "className": "",
+        "x": 1250,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6394519ad9b1209c",
+        "type": "ui_gauge",
+        "z": "47c1c75ddc63c6f1",
+        "g": "02408e7a839ddc6b",
+        "name": "AMP FWD PWR",
+        "group": "4101a55b2de0c258",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "FWD PWR",
+        "label": "Watts",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "600",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "350",
+        "seg2": "500",
+        "className": "",
+        "x": 1240,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "d41e2f787941df24",
+        "type": "binary",
+        "z": "47c1c75ddc63c6f1",
+        "name": "json to array",
+        "property": "payload",
+        "pattern": "b8[72]",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "324f3fcf51373166"
+            ]
+        ]
+    },
+    {
+        "id": "4fac08819f7c4333",
+        "type": "link in",
+        "z": "47c1c75ddc63c6f1",
+        "name": "link in 2",
+        "links": [
+            "07039ad8223dbace"
+        ],
+        "x": 735,
+        "y": 360,
+        "wires": [
+            [
+                "0fb9611ddcb654e1"
+            ]
+        ]
+    },
+    {
+        "id": "fe10fc68e13d7196",
+        "type": "ui_button",
+        "z": "47c1c75ddc63c6f1",
+        "name": "",
+        "group": "4101a55b2de0c258",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Opperate",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "9b2972af2f90dba7"
+            ]
+        ]
+    },
+    {
+        "id": "eb3308dba6b5bbd2",
+        "type": "ui_button",
+        "z": "47c1c75ddc63c6f1",
+        "name": "",
+        "group": "4101a55b2de0c258",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Standby",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "79772dbec18e39bc"
+            ]
+        ]
     }
 ]
