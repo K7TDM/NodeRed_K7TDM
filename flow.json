@@ -599,6 +599,7 @@
         "id": "7f391b31df87d7f7",
         "type": "serial request",
         "z": "20889b779bcd2b40",
+        "d": true,
         "name": "Yaesu FTdx10",
         "serial": "691e6d39b0c4706a",
         "x": 900,
