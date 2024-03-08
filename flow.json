@@ -2461,7 +2461,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 700,
         "y": 220,
         "wires": []
     },
@@ -2632,7 +2632,7 @@
         "format": "{{msg.payload.server.location}}",
         "layout": "row-spread",
         "className": "",
-        "x": 720,
+        "x": 700,
         "y": 300,
         "wires": []
     },
@@ -2758,7 +2758,7 @@
         "output": "msg.payload.timestamp",
         "outputType": "msg",
         "outTz": "America/Los_Angeles",
-        "x": 760,
+        "x": 740,
         "y": 260,
         "wires": [
             [
