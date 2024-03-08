@@ -60,7 +60,9 @@
             "6394519ad9b1209c"
         ],
         "x": 954,
-        "y": 339
+        "y": 339,
+        "w": 392,
+        "h": 202
     },
     {
         "id": "b12a3bd7612d6a17",
@@ -429,6 +431,46 @@
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "53f59dd9da9db754",
+        "type": "ui_spacer",
+        "z": "eed14075dc1eb9a1",
+        "name": "spacer",
+        "group": "9cb4bc4d.96552",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "bb2c6dca9015ebda",
+        "type": "ui_spacer",
+        "z": "eed14075dc1eb9a1",
+        "name": "spacer",
+        "group": "9cb4bc4d.96552",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9494f80648961e55",
+        "type": "ui_spacer",
+        "z": "eed14075dc1eb9a1",
+        "name": "spacer",
+        "group": "9cb4bc4d.96552",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "170f25ac41cb208f",
+        "type": "ui_spacer",
+        "z": "eed14075dc1eb9a1",
+        "name": "spacer",
+        "group": "9cb4bc4d.96552",
+        "order": 11,
+        "width": 1,
+        "height": 1
     },
     {
         "id": "2ca720dae104dda6",
@@ -2152,7 +2194,7 @@
         "z": "9cf3a6d.1104258",
         "name": "",
         "group": "9cb4bc4d.96552",
-        "order": 10,
+        "order": 9,
         "width": 2,
         "height": 2,
         "gtype": "gage",
@@ -2178,7 +2220,7 @@
         "z": "9cf3a6d.1104258",
         "name": "",
         "group": "9cb4bc4d.96552",
-        "order": 6,
+        "order": 5,
         "width": 2,
         "height": 2,
         "gtype": "gage",
@@ -2428,7 +2470,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 1,
+        "order": 2,
         "width": 6,
         "height": 1,
         "name": "ST Last Run",
@@ -2449,7 +2491,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 3,
+        "order": 4,
         "width": 3,
         "height": 1,
         "name": "ST Jitter",
@@ -2466,7 +2508,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 4,
+        "order": 5,
         "width": 3,
         "height": 1,
         "name": "ST Latency",
@@ -2527,7 +2569,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Download Bandwidth",
         "group": "2675ce9421e15d59",
-        "order": 5,
+        "order": 6,
         "width": 3,
         "height": 2,
         "gtype": "gage",
@@ -2555,7 +2597,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Upload Bandwidth",
         "group": "2675ce9421e15d59",
-        "order": 6,
+        "order": 7,
         "width": 3,
         "height": 2,
         "gtype": "gage",
@@ -2582,7 +2624,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 2,
+        "order": 3,
         "width": 6,
         "height": 1,
         "name": "ST Server",
@@ -2600,7 +2642,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Download Chart",
         "group": "2675ce9421e15d59",
-        "order": 7,
+        "order": 8,
         "width": 6,
         "height": 3,
         "label": "Download",
@@ -2644,7 +2686,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Upload Chart",
         "group": "2675ce9421e15d59",
-        "order": 8,
+        "order": 9,
         "width": 6,
         "height": 3,
         "label": "Upload",
@@ -2792,6 +2834,34 @@
         "y": 360,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "0369d79fb5fd98ed",
+        "type": "ui_button",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "group": "2675ce9421e15d59",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Run",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "acceptLicense",
+        "topicType": "msg",
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "7576e2afba102abe"
+            ]
         ]
     },
     {
