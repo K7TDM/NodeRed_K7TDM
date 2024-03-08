@@ -2808,8 +2808,8 @@
         "topic": "",
         "payload": "300",
         "payloadType": "num",
-        "x": 1110,
-        "y": 340,
+        "x": 1150,
+        "y": 360,
         "wires": [
             [
                 "4ef9a7372428dc94"
@@ -2822,7 +2822,7 @@
         "z": "eed14075dc1eb9a1",
         "confignode": "155bd25e6a5fe2c8",
         "name": "",
-        "notificationTitle": "K7TDM - Speed",
+        "notificationTitle": "SPEED",
         "notificationTitleType": "str",
         "notificationBody": "payload",
         "notificationBodyType": "msg",
@@ -2831,7 +2831,7 @@
         "notificationSoundComputedType": "msg",
         "output": 1,
         "x": 1350,
-        "y": 360,
+        "y": 380,
         "wires": [
             []
         ]
