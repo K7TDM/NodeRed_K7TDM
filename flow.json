@@ -2822,7 +2822,7 @@
         "z": "eed14075dc1eb9a1",
         "confignode": "155bd25e6a5fe2c8",
         "name": "",
-        "notificationTitle": "SPEED",
+        "notificationTitle": "Slow Internet",
         "notificationTitleType": "str",
         "notificationBody": "payload",
         "notificationBodyType": "msg",
