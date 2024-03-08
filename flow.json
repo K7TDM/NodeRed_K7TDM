@@ -2787,7 +2787,7 @@
         "y": 380,
         "wires": [
             [
-                "4ef9a7372428dc94"
+                "ddf4d1b9d37561e9"
             ]
         ]
     },
@@ -2808,11 +2808,11 @@
         "topic": "",
         "payload": "300",
         "payloadType": "str",
-        "x": 1150,
+        "x": 1090,
         "y": 360,
         "wires": [
             [
-                "4ef9a7372428dc94"
+                "ddf4d1b9d37561e9"
             ]
         ]
     },
@@ -2830,7 +2830,7 @@
         "notificationSoundComputed": "payload.sound",
         "notificationSoundComputedType": "msg",
         "output": 1,
-        "x": 1350,
+        "x": 1510,
         "y": 380,
         "wires": [
             []
@@ -2861,6 +2861,35 @@
         "wires": [
             [
                 "7576e2afba102abe"
+            ]
+        ]
+    },
+    {
+        "id": "ddf4d1b9d37561e9",
+        "type": "change",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "",
+                "fromt": "num",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1300,
+        "y": 380,
+        "wires": [
+            [
+                "4ef9a7372428dc94"
             ]
         ]
     },
