@@ -2822,7 +2822,7 @@
         "z": "eed14075dc1eb9a1",
         "confignode": "155bd25e6a5fe2c8",
         "name": "",
-        "notificationTitle": "Slow Internet",
+        "notificationTitle": "Slow Internet K7TDM",
         "notificationTitleType": "str",
         "notificationBody": "payload",
         "notificationBodyType": "msg",
@@ -2891,6 +2891,20 @@
             [
                 "4ef9a7372428dc94"
             ]
+        ]
+    },
+    {
+        "id": "914e1ca780feff3a",
+        "type": "remote-access",
+        "z": "eed14075dc1eb9a1",
+        "confignode": "155bd25e6a5fe2c8",
+        "name": "",
+        "verbose": 0,
+        "x": 1500,
+        "y": 280,
+        "wires": [
+            [],
+            []
         ]
     },
     {
