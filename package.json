@@ -11,7 +11,8 @@
         "node-red-contrib-remote": "1.5.0",
         "node-red-contrib-speedtest": "1.1.0",
         "node-red-contrib-string": "1.0.0",
-        "node-red-contrib-ui-level": "0.1.46"
+        "node-red-contrib-ui-level": "0.1.46",
+        "node-red-contrib-ui-led": "0.4.11"
     },
     "node-red": {
         "settings": {
