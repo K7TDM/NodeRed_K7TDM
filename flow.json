@@ -47,6 +47,14 @@
         "env": []
     },
     {
+        "id": "41b1c79c99bb7f51",
+        "type": "tab",
+        "label": "Remote Red",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "02408e7a839ddc6b",
         "type": "group",
         "z": "47c1c75ddc63c6f1",
@@ -496,6 +504,18 @@
         "order": 11,
         "width": 1,
         "height": 1
+    },
+    {
+        "id": "476c8032f0e3a930",
+        "type": "remote-config",
+        "name": "K7TDM_Backdoor",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/",
+        "instancehash": "a3a4mvjku8vuqyanxog7zhwfmqnrs46nh0c8w097y2le6wrad6bg3qjq7gog6jqr",
+        "server": "nodered03.remote-red.com",
+        "region": "us"
     },
     {
         "id": "2ca720dae104dda6",
@@ -2461,8 +2481,8 @@
         "notificationSoundComputed": "payload.sound",
         "notificationSoundComputedType": "msg",
         "output": 1,
-        "x": 950,
-        "y": 120,
+        "x": 850,
+        "y": 100,
         "wires": [
             []
         ]
@@ -2991,20 +3011,6 @@
             [
                 "4ef9a7372428dc94"
             ]
-        ]
-    },
-    {
-        "id": "914e1ca780feff3a",
-        "type": "remote-access",
-        "z": "eed14075dc1eb9a1",
-        "confignode": "155bd25e6a5fe2c8",
-        "name": "",
-        "verbose": 0,
-        "x": 1500,
-        "y": 280,
-        "wires": [
-            [],
-            []
         ]
     },
     {
@@ -6112,6 +6118,34 @@
         "x": 140,
         "y": 60,
         "wires": [
+            []
+        ]
+    },
+    {
+        "id": "914e1ca780feff3a",
+        "type": "remote-access",
+        "z": "41b1c79c99bb7f51",
+        "confignode": "155bd25e6a5fe2c8",
+        "name": "UI access",
+        "verbose": 0,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8e4648daa0ebc4f7",
+        "type": "remote-access",
+        "z": "41b1c79c99bb7f51",
+        "confignode": "476c8032f0e3a930",
+        "name": "Not UI",
+        "verbose": 0,
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [],
             []
         ]
     }
