@@ -39,6 +39,14 @@
         "env": []
     },
     {
+        "id": "79d162ed4e8f40d8",
+        "type": "tab",
+        "label": "Toolbar",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "02408e7a839ddc6b",
         "type": "group",
         "z": "47c1c75ddc63c6f1",
@@ -431,7 +439,26 @@
         "hidden": false
     },
     {
-        "id": "53f59dd9da9db754",
+        "id": "c982fbb8.1deb38",
+        "type": "ui_group",
+        "name": "hidden_group",
+        "tab": "7c447e96.4b96a",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7c447e96.4b96a",
+        "type": "ui_tab",
+        "name": "Zooland Sys",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7dba4836b51904a4",
         "type": "ui_spacer",
         "z": "eed14075dc1eb9a1",
         "name": "spacer",
@@ -441,7 +468,7 @@
         "height": 1
     },
     {
-        "id": "bb2c6dca9015ebda",
+        "id": "e81e3b6f16bd064f",
         "type": "ui_spacer",
         "z": "eed14075dc1eb9a1",
         "name": "spacer",
@@ -451,7 +478,7 @@
         "height": 1
     },
     {
-        "id": "9494f80648961e55",
+        "id": "91258fd58e5a5e33",
         "type": "ui_spacer",
         "z": "eed14075dc1eb9a1",
         "name": "spacer",
@@ -461,7 +488,7 @@
         "height": 1
     },
     {
-        "id": "170f25ac41cb208f",
+        "id": "50cf4a1b5920c279",
         "type": "ui_spacer",
         "z": "eed14075dc1eb9a1",
         "name": "spacer",
@@ -2496,7 +2523,7 @@
         "id": "f66da9982f8b83d0",
         "type": "inject",
         "z": "eed14075dc1eb9a1",
-        "name": "Every 2 hours",
+        "name": "Every hour",
         "props": [
             {
                 "p": "acceptLicense",
@@ -2508,12 +2535,12 @@
                 "vt": "str"
             }
         ],
-        "repeat": "7200",
+        "repeat": "3600",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 270,
+        "x": 260,
         "y": 360,
         "wires": [
             [
@@ -2543,7 +2570,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 2,
+        "order": 3,
         "width": 6,
         "height": 1,
         "name": "ST Last Run",
@@ -2564,7 +2591,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 4,
+        "order": 5,
         "width": 3,
         "height": 1,
         "name": "ST Jitter",
@@ -2581,7 +2608,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 5,
+        "order": 6,
         "width": 3,
         "height": 1,
         "name": "ST Latency",
@@ -2642,7 +2669,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Download Bandwidth",
         "group": "2675ce9421e15d59",
-        "order": 6,
+        "order": 7,
         "width": 3,
         "height": 2,
         "gtype": "gage",
@@ -2670,7 +2697,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Upload Bandwidth",
         "group": "2675ce9421e15d59",
-        "order": 7,
+        "order": 8,
         "width": 3,
         "height": 2,
         "gtype": "gage",
@@ -2697,7 +2724,7 @@
         "type": "ui_text",
         "z": "eed14075dc1eb9a1",
         "group": "2675ce9421e15d59",
-        "order": 3,
+        "order": 4,
         "width": 6,
         "height": 1,
         "name": "ST Server",
@@ -2715,7 +2742,7 @@
         "z": "eed14075dc1eb9a1",
         "name": "ST Download Chart",
         "group": "2675ce9421e15d59",
-        "order": 8,
+        "order": 10,
         "width": 6,
         "height": 3,
         "label": "Download",
@@ -2916,10 +2943,10 @@
         "name": "",
         "group": "2675ce9421e15d59",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": 4,
+        "height": 1,
         "passthru": false,
-        "label": "Run",
+        "label": "Run Now",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -2929,7 +2956,7 @@
         "payloadType": "bool",
         "topic": "acceptLicense",
         "topicType": "msg",
-        "x": 250,
+        "x": 260,
         "y": 300,
         "wires": [
             [
@@ -2979,6 +3006,120 @@
             [],
             []
         ]
+    },
+    {
+        "id": "af3b02b22faa4b05",
+        "type": "status",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "scope": [
+            "7576e2afba102abe"
+        ],
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "8d01993e8d13ebda",
+                "16ae9815041c0e46"
+            ]
+        ]
+    },
+    {
+        "id": "8d01993e8d13ebda",
+        "type": "change",
+        "z": "eed14075dc1eb9a1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "status.fill",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "ad9061fa1a7ac98e",
+                "6ca2846b476d9715"
+            ]
+        ]
+    },
+    {
+        "id": "6ca2846b476d9715",
+        "type": "ui_led",
+        "z": "eed14075dc1eb9a1",
+        "order": 2,
+        "group": "2675ce9421e15d59",
+        "width": 2,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "#ffff00",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "16ae9815041c0e46",
+        "type": "debug",
+        "z": "eed14075dc1eb9a1",
+        "name": "debug 67",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ad9061fa1a7ac98e",
+        "type": "debug",
+        "z": "eed14075dc1eb9a1",
+        "name": "debug 68",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
+        "wires": []
     },
     {
         "id": "b7a0d2d87477d142",
@@ -5951,6 +6092,27 @@
             [
                 "79772dbec18e39bc"
             ]
+        ]
+    },
+    {
+        "id": "b97bc1c0.cb899",
+        "type": "ui_template",
+        "z": "79d162ed4e8f40d8",
+        "group": "c982fbb8.1deb38",
+        "name": "Clock Toolbar",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "format": "<script id=\"titleScript\" type=\"text/javascript\">\n\n$(function() {\n    if($('.md-toolbar-tools').length != 0){\n        loadClock();\n    }else setTimeout(loadClock, 500)\n});\n\nfunction loadClock(){\n    $('#clock').remove();\n    var toolbar = $('.md-toolbar-tools');\n    \n    var div = $('<div/>');\n    var p = $('<p/ id=\"clock\">');\n    \n    div.append(p);\n    div[0].style.margin = '5px 5px 5px auto';\n    toolbar.append(div);\n\n    function displayTitle(lh) {\n        p.text(lh); \n    }\n    \n    function upTime() {\n        var d = new Date();\n        p.text(d.toUTCString());\n    }\n\n    if(document.clockInterval){ \n            clearInterval(document.clockInterval);\n            document.clockInterval = null;\n    }\n        \n    document.clockInterval = setInterval(upTime,1000);\n}\n\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "global",
+        "className": "",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            []
         ]
     }
 ]
